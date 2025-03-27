@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .lora {
+            font-family: 'Lora', serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes sway {
+            0% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(-5deg); }
+        }
+        .sway {
+            animation: sway 6s ease-in-out infinite;
+            transform-origin: top center;
+        }
+        .bg-pattern {
+            background-color: #f8f8ff;
+            background-image: radial-gradient(#e0d1ff 0.5px, transparent 0.5px);
+            background-size: 12px 12px;
+        }
+        .ribbon {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            position: absolute;
+        }
+        .ribbon::before,
+        .ribbon::after {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            display: block;
+            border: 5px solid #8b5cf6;
+        }
+        .ribbon-top-right {
+            top: -10px;
+            right: -10px;
+        }
+        .ribbon-top-right::before,
+        .ribbon-top-right::after {
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+        .ribbon-top-right::before {
+            top: 0;
+            left: 30px;
+        }
+        .ribbon-top-right::after {
+            bottom: 30px;
+            right: 0;
+        }
+        .ribbon-top-right span {
+            position: absolute;
+            top: 30px;
+            right: -25px;
+            transform: rotate(45deg);
+            width: 150px;
+            background-color: #8b5cf6;
+            text-align: center;
+            padding: 5px 0;
+            color: white;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 640px) {
+            .text-responsive {
+                font-size: 1.8rem;
+            }
+        }
+        .card-border {
+            border: 2px solid #ddd;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            position: relative;
+        }
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+        }
+        .balloon1 {
+            top: -25px;
+            left: 10%;
+            transform: rotate(-10deg);
+        }
+        .balloon2 {
+            top: -20px;
+            right: 10%;
+            transform: rotate(10deg);
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <div class="card-border bg-white rounded-xl p-8 mt-10 relative">
+            <!-- Ribbons and decorations -->
+            <div class="ribbon ribbon-top-right"><span>Farewell!</span></div>
+            <div class="balloon balloon1 float">
+                <i class="bi bi-balloon-fill text-4xl text-pink-500"></i>
+            </div>
+            <div class="balloon balloon2 float" style="animation-delay: 1s">
+                <i class="bi bi-balloon-fill text-4xl text-purple-500"></i>
+            </div>
+            
+            <div class="text-center animate-fade-in">
+                <h1 class="dancing-script text-4xl md:text-6xl text-responsive mb-6 text-purple-800">
+                    You're Invited To! 
+                    <span class="inline-block animate-bounce ml-2">🎉</span>
+                </h1>
+                
+                <div class="playfair text-3xl md:text-4xl font-bold text-purple-900 mb-4 animate-fade-in" style="animation-delay: 0.3s">
+                    Mr. Minu Kuriakose's
+                </div>
+                
+                <div class="lora italic text-2xl text-purple-700 mb-8">
+                    Retirement Party
+                </div>
+                
+                <div class="relative mt-8 mb-12">
+                    <hr class="border-t-2 border-purple-300 w-3/4 mx-auto">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white px-4">
+                        <i class="bi bi-stars text-2xl text-yellow-500"></i>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 rounded-lg border border-purple-200 p-6 mb-8 animate-fade-in" style="animation-delay: 0.6s">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="text-left">
+                            <p class="flex items-center text-gray-800 mb-4">
+                                <i class="bi bi-calendar-event text-2xl text-purple-600 mr-3"></i>
+                                <span class="playfair">Saturday, March 29th, 2025</span>
+                            </p>
+                            <p class="flex items-center text-gray-800 mb-4">
+                                <i class="bi bi-clock text-2xl text-purple-600 mr-3"></i>
+                                <span class="playfair">1:00 PM - 5:00 PM</span>
+                            </p>
+                            <p class="flex items-center text-gray-800">
+                                <i class="bi bi-geo-alt text-2xl text-purple-600 mr-3"></i>
+                                <span class="playfair">Lok Kalyan Public School<br>Kalyan<br>Celebration Hall</span>
+                            </p>
+                        </div>
+                        
+                        <div class="text-left">
+                            <h3 class="playfair text-xl font-bold text-purple-800 mb-4">Join us as we celebrate</h3>
+                            <p class="text-gray-700 mb-4 lora">35 wonderful years of dedicated service to education and inspiring countless young minds.</p>
+                            <button onclick="triggerConfetti()" class="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition duration-300 flex items-center shadow-md">
+                                <i class="bi bi-calendar-plus mr-2"></i>
+                                Add to Calendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-purple-400 italic">~ Celebrating a Legacy of Education ~</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function triggerConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#8b5cf6', '#ec4899', '#4f46e5', '#f59e0b']
+            });
+            
+            // Show a simple RSVP form
+            setTimeout(() => {
+                
+            const event = {
+                title: "Mr. Minu Kuriakose's Retirement Party",
+                start: new Date('2025-03-29T16:00:00'),
+                end: new Date('2025-03-29T19:00:00'),
+                location: "Lok Kalyan Public School, Kalyan, Celebration Hall"
+            };
+
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')}/${event.end.toISOString().replace(/-|:|\.\d\d\d/g, '')}&location=${encodeURIComponent(event.location)}`;
+            
+            window.open(googleCalendarUrl, '_blank');
+            }, 800);
+        }
+        // Trigger initial confetti
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                confetti({
+                    particleCount: 50,
+                    spread: 60,
+                    origin: { y: 0.6 },
+                    colors: ['#8b5cf6', '#ec4899', '#4f46e5', '#f59e0b']
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
