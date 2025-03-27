@@ -208,7 +208,7 @@
             const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start.toISOString().replace(/-|:|\.\d\d\d/g, '')}/${event.end.toISOString().replace(/-|:|\.\d\d\d/g, '')}&location=${encodeURIComponent(event.location)}`;
             
             window.open(googleCalendarUrl, '_blank');
-            }, 800);
+            }, 1000);
         }
         // Trigger initial confetti
         window.addEventListener('load', () => {
